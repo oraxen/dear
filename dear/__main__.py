@@ -27,12 +27,10 @@ logger = logging.getLogger(__name__)
 import discord
 import sys
 from config import TomlConfig
-
-# inspired by https://github.com/agubelu/discord-bot-template
-# all credits go to @agubelu
+from events import ReactionsListener
 
 # Set to remember if the bot is already running, since on_ready may be called
-# more than once on reconnects
+# more than once on reconnects # all credits go to @agubelu
 this = sys.modules[__name__]
 this.running = False
 
@@ -52,6 +50,7 @@ def main():
         activity = discord.Game(name=config.now_playing)
         await client.change_presence(status=discord.Status.idle, activity=activity)
 
+    ReactionsListener(config.ranks, client).load()
     client.run(config.token)
 
 

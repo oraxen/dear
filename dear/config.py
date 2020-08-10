@@ -37,3 +37,5 @@ class TomlConfig(Config):
         bot = config["bot"]
         self.now_playing = bot["now_playing"]
         self.token = bot["token"]
+
+        self.ranks = config["ranks"]

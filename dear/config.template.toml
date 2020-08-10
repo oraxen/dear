@@ -1,3 +1,10 @@
 [bot]
 now_playing = "welcome newcomers 👋"
 token = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+[ranks]
+
+    [ranks.member]
+    role_id = 564156869099257879
+    message_id = 610760299552964608
+    emoji = "✅"
