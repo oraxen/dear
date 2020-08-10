@@ -48,7 +48,7 @@ def main():
         this.running = True
 
         activity = discord.Game(name=config.now_playing)
-        await client.change_presence(status=discord.Status.idle, activity=activity)
+        await client.change_presence(status=discord.Status.online, activity=activity)
 
     ReactionsListener(config.ranks, client).load()
     client.run(config.token)
