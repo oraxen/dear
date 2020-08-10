@@ -34,5 +34,6 @@ class TomlConfig(Config):
     def load_config(self, config_file):
         config = toml.load(config_file)
 
-        server = config["misc"]
-        self.now_playing = server["now_playing"]
+        bot = config["bot"]
+        self.now_playing = bot["now_playing"]
+        self.token = bot["token"]
