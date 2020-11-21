@@ -38,7 +38,9 @@ this.running = False
 def main():
     logger.info("starting up")
     config = TomlConfig("config.toml", "config.template.toml")
-    client = discord.Client()
+    intents = discord.Intents()
+    intents.members = True
+    client = discord.Client(intents=intents)
 
     @client.event
     async def on_ready():
@@ -46,6 +48,7 @@ def main():
             return
 
         this.running = True
+        logger.info("successfully loaded")
 
         activity = discord.Game(name=config.now_playing)
         await client.change_presence(status=discord.Status.online, activity=activity)
