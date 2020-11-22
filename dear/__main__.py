@@ -39,6 +39,7 @@ def main():
     logger.info("starting up")
     config = TomlConfig("config.toml", "config.template.toml")
     intents = discord.Intents()
+    intents.guilds = True
     intents.members = True
     client = discord.Client(intents=intents)
 
